@@ -1,6 +1,5 @@
 <?php session_start();
-
-/**
+/**true
  *
  * Licencias
  *
@@ -41,7 +40,9 @@ $dotenv = Dotenv\Dotenv::createImmutable(PATH_ROOT, '.env')->load();
 
 // Carga la vista del autentificador
 require PATH_APP . 'core/Router.php';
-$router = new \app\core\Router($_POST || false, $_GET || false);
+$router = new \app\core\Router($_POST, $_GET, $_SESSION, $_ENV);
+$router->route();
+$_SESSION['auth'] = $router->getAuth();
 
 /*
 use \app\core\{Router, Prepocessor};
