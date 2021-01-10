@@ -16,7 +16,9 @@ http://localhost:8080/index.php
 
 Run mysql client:
 
-- `sudo docker-compose exec db mysql -u root -p` 
+```
+sudo docker-compose exec db mysql -u root -p
+```
 
 user: root
 password: test
