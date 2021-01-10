@@ -41,14 +41,7 @@ $dotenv = Dotenv\Dotenv::createImmutable(PATH_ROOT, '.env')->load();
 
 // Carga la vista del autentificador
 require PATH_APP . 'core/Router.php';
-$router = new \app\core\Router();
-
-if($_POST && $_POST['password'] === $_ENV['PASSWORD']) {
-    $router->view($_GET['view']);
-} else {
-    $router->view('auth');
-}
-
+$router = new \app\core\Router($_POST || false, $_GET || false);
 
 /*
 use \app\core\{Router, Prepocessor};
